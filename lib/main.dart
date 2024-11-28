@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tt_36/bottom_navigation_bar/bottom_navigation_bar.dart';
 
 void main() {
   runApp(const MainApp());
@@ -9,12 +10,12 @@ class MainApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      home: Scaffold(
-        body: Center(
-          child: Text('Hello World!'),
-        ),
+    return MaterialApp(
+      theme: ThemeData(
+        fontFamily: 'Onest',
       ),
+      debugShowCheckedModeBanner: false,
+      home: CustomNavigationBar(),
     );
   }
 }
