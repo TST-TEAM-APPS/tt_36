@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:gaimon/gaimon.dart';
+import 'package:tt_36/affirmation_view/affirmations_page.dart';
 import 'package:tt_36/main_view/main_page.dart';
+import 'package:tt_36/mood_graphic_view/mood_graphic_page.dart';
 import 'package:tt_36/styles/app_theme.dart';
 
 class CustomNavigationBar extends StatefulWidget {
@@ -15,8 +17,8 @@ class _CustomNavigationBarState extends State<CustomNavigationBar> {
 
   late final List<Widget> _pages = [
     const MainPage(),
-    const MainPage(),
-    const MainPage(),
+    const AffirmationsPage(),
+    const MoodGraphicPage(),
   ];
 
   // Колбек для отображения BottomSheet
@@ -105,7 +107,7 @@ class _NavBarItem extends StatelessWidget {
       child: Column(
         mainAxisSize: MainAxisSize.max,
         children: [
-          SizedBox(
+          const SizedBox(
             height: 20,
           ),
           Icon(
@@ -115,7 +117,7 @@ class _NavBarItem extends StatelessWidget {
                 : const Color.fromARGB(123, 243, 239, 230),
             size: 28,
           ),
-          Spacer(),
+          const Spacer(),
           if (isActive)
             Container(
               margin: const EdgeInsets.only(bottom: 4),

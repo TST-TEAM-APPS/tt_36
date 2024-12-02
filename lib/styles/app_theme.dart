@@ -43,17 +43,17 @@ class AppTheme {
     fontWeight: FontWeight.normal,
   );
 
-  static const Color background = Color(0xff010101); // #1A1724
+  static const Color background = Color(0xff010101);
   static const Color onBackground = Color(0xffFCF8EF);
-  static const Color primary = Color(0xFF005AFC); // #FF5D67
-  static const Color onPrimary = Color(0xFFF3F4FB); // #FFFFFF
+  static const Color primary = Color(0xFF005AFC);
+  static const Color onPrimary = Color(0xFFF3F4FB);
 
-  static const Color surface = Color(0x40B5B5B5); // rgba(51, 50, 59, 0.404)
-  static const Color onSurface = Color(0xFFF3EFE6); // #3C3C3E
-  static const Color outline = Color(0xFF4A4A4C); // #4A4A4C
-  static const Color popUp = Color(0xFFE5E5E6); // #4A4A4C
-  static const Color bad = Color(0xFFF55050); // #4A4A4C
-  static const Color notBad = Color(0xFFB500FC); // #4A4A4C
-  static const Color amazing = Color(0xFF00FCB5); // #4A4A4C
+  static const Color surface = Color(0x40B5B5B5);
+  static const Color onSurface = Color(0xFFF3EFE6);
+  static const Color outline = Color(0xFF4A4A4C);
+  static const Color popUp = Color(0xFF1C1C1C);
+  static const Color bad = Color(0xFFF55050);
+  static const Color notBad = Color(0xFFB500FC);
+  static const Color amazing = Color(0xFF00FCB5);
   static const Color good = Color(0xFFFCB900);
 }
