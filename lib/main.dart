@@ -1,32 +1,32 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:flutter_native_splash/flutter_native_splash.dart';
+import 'package:fraze_pocket/onboarding_view/initial_page.dart';
+import 'package:fraze_pocket/service/service_locator.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:provider/provider.dart';
-import 'package:fraze_pocket/bottom_navigation_bar/bottom_navigation_bar.dart';
 import 'package:fraze_pocket/models/mood_entry.dart';
-import 'package:fraze_pocket/onboarding_view/onboarding_page.dart';
 import 'package:fraze_pocket/provider/affirmation_provider.dart';
 
 void main() async {
-  WidgetsFlutterBinding.ensureInitialized();
-
+  final splashBindings = WidgetsFlutterBinding.ensureInitialized();
+  FlutterNativeSplash.preserve(widgetsBinding: splashBindings);
+  await ServiceLocator.setup();
   await Hive.initFlutter();
   Hive.registerAdapter(MoodEntryAdapter());
   await Hive.openBox('settings');
   await Hive.openBox<MoodEntry>('moodBox');
-
-  var settingsBox = Hive.box('settings');
-  bool isOnboardingCompleted =
-      settingsBox.get('isOnboardingCompleted', defaultValue: false);
+  await SystemChrome.setPreferredOrientations([
+    DeviceOrientation.portraitUp,
+    DeviceOrientation.portraitDown,
+  ]);
 
   runApp(ChangeNotifierProvider(
-      create: (context) => AffirmationProvider(),
-      child: MainApp(isOnboardingCompleted: isOnboardingCompleted)));
+      create: (context) => AffirmationProvider(), child: const MainApp()));
 }
 
 class MainApp extends StatelessWidget {
-  final bool isOnboardingCompleted;
-
-  const MainApp({super.key, required this.isOnboardingCompleted});
+  const MainApp({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -36,9 +36,7 @@ class MainApp extends StatelessWidget {
         fontFamily: 'Onest',
       ),
       debugShowCheckedModeBanner: false,
-      home: isOnboardingCompleted
-          ? const CustomNavigationBar()
-          : const OnboardingScreen(),
+      home: const InitialScreen()
     );
   }
 }

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:fraze_pocket/service/mixins/smith_mixin.dart';
 import 'package:fraze_pocket/styles/app_theme.dart';
 
 class SettingsPage extends StatefulWidget {
@@ -8,7 +9,7 @@ class SettingsPage extends StatefulWidget {
   State<SettingsPage> createState() => _SettingsPageState();
 }
 
-class _SettingsPageState extends State<SettingsPage> {
+class _SettingsPageState extends State<SettingsPage> with SmithMixin{
   @override
   Widget build(BuildContext context) {
     return Scaffold(

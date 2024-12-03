@@ -4,11 +4,11 @@ workflows:
     instance_type: mac_mini_m1
     max_build_duration: 45
     integrations:
-      app_store_connect: Dento.sabzero.29
+      app_store_connect: Flapwni36yjok
     environment:
       ios_signing:
         distribution_type: app_store
-        bundle_identifier: adress.29alsafuw.hero
+        bundle_identifier: api.ChsajyuyjT.ARTOs
       flutter: stable
       xcode: latest
       cocoapods: default
