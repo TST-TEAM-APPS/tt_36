@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
+import 'package:provider/provider.dart';
 import 'package:tt_36/bottom_navigation_bar/bottom_navigation_bar.dart';
 import 'package:tt_36/models/mood_entry.dart';
 import 'package:tt_36/onboarding_view/onboarding_page.dart';
+import 'package:tt_36/provider/affirmation_provider.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -17,7 +19,9 @@ void main() async {
   bool isOnboardingCompleted =
       settingsBox.get('isOnboardingCompleted', defaultValue: false);
 
-  runApp(MainApp(isOnboardingCompleted: isOnboardingCompleted));
+  runApp(ChangeNotifierProvider(
+      create: (context) => AffirmationProvider(),
+      child: MainApp(isOnboardingCompleted: isOnboardingCompleted)));
 }
 
 class MainApp extends StatelessWidget {
