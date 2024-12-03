@@ -14,7 +14,6 @@ void main() async {
   await Hive.openBox('settings');
   await Hive.openBox<MoodEntry>('moodBox');
 
-  // Check if onboarding is completed
   var settingsBox = Hive.box('settings');
   bool isOnboardingCompleted =
       settingsBox.get('isOnboardingCompleted', defaultValue: false);
@@ -35,7 +34,7 @@ class MainApp extends StatelessWidget {
       theme: ThemeData(
         fontFamily: 'Onest',
       ),
-      debugShowCheckedModeBanner: false,
+      debugShowCheckedModeBanner: true,
       home: isOnboardingCompleted
           ? const CustomNavigationBar()
           : const OnboardingScreen(),

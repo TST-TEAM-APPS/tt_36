@@ -73,7 +73,6 @@ class AffirmationProvider with ChangeNotifier {
         );
       } catch (e) {
         log('Error fetching affirmation for category ${categories[i]}: $e');
-        // Optionally, provide a default affirmation or skip this category
       }
     }
 

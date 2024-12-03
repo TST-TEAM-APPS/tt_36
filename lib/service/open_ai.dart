@@ -2,7 +2,6 @@ import 'dart:convert';
 import 'dart:developer';
 
 import 'package:http/http.dart';
-import 'package:tt_36/models/affirmation.dart';
 
 class ApiService {
   Future<String> getAffirmation({required String category}) async {
