@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:tt_36/main_view/action_history_page.dart';
-import 'package:tt_36/styles/app_theme.dart';
+import 'package:fraze_pocket/main_view/action_history_page.dart';
+import 'package:fraze_pocket/styles/app_theme.dart';
 
 class AffirmationsPage extends StatefulWidget {
   const AffirmationsPage({super.key});

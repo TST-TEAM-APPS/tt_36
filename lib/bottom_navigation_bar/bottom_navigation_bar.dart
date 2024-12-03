@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:gaimon/gaimon.dart';
-import 'package:tt_36/main_view/main_page.dart';
-import 'package:tt_36/mood_graphic_view/mood_graphic_page.dart';
-import 'package:tt_36/styles/app_theme.dart';
-import 'package:tt_36/test_page.dart';
+import 'package:fraze_pocket/main_view/main_page.dart';
+import 'package:fraze_pocket/mood_graphic_view/mood_graphic_page.dart';
+import 'package:fraze_pocket/styles/app_theme.dart';
+import 'package:fraze_pocket/test_page.dart';
 
 class CustomNavigationBar extends StatefulWidget {
   const CustomNavigationBar({super.key});

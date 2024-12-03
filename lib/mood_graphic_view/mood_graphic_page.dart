@@ -2,9 +2,9 @@ import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
 import 'package:intl/intl.dart';
-import 'package:tt_36/main_view/action_history_page.dart';
-import 'package:tt_36/models/mood_entry.dart';
-import 'package:tt_36/styles/app_theme.dart';
+import 'package:fraze_pocket/main_view/action_history_page.dart';
+import 'package:fraze_pocket/models/mood_entry.dart';
+import 'package:fraze_pocket/styles/app_theme.dart';
 
 class MoodGraphicPage extends StatefulWidget {
   const MoodGraphicPage({super.key});

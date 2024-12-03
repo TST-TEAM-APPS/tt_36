@@ -1,11 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:tt_36/models/affirmation.dart';
+import 'package:fraze_pocket/models/affirmation.dart';
 
-import 'package:tt_36/provider/affirmation_provider.dart';
-import 'package:tt_36/styles/app_theme.dart';
-import 'package:tt_36/utils/extensions.dart';
+import 'package:fraze_pocket/provider/affirmation_provider.dart';
+import 'package:fraze_pocket/styles/app_theme.dart';
+import 'package:fraze_pocket/utils/extensions.dart';
 
 class AffirmationsPage extends StatefulWidget {
   const AffirmationsPage({super.key});

@@ -2,8 +2,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:gaimon/gaimon.dart';
 import 'package:hive/hive.dart';
-import 'package:tt_36/bottom_navigation_bar/bottom_navigation_bar.dart';
-import 'package:tt_36/styles/app_theme.dart';
+import 'package:fraze_pocket/bottom_navigation_bar/bottom_navigation_bar.dart';
+import 'package:fraze_pocket/styles/app_theme.dart';
 
 class OnboardingScreen extends StatefulWidget {
   const OnboardingScreen({super.key});

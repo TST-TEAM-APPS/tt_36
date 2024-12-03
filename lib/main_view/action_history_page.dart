@@ -1,8 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
-import 'package:tt_36/models/mood_entry.dart';
-import 'package:tt_36/styles/app_theme.dart';
+import 'package:fraze_pocket/models/mood_entry.dart';
+import 'package:fraze_pocket/styles/app_theme.dart';
 
 class ActionHistoryPage extends StatefulWidget {
   const ActionHistoryPage({super.key});

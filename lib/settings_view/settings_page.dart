@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:tt_36/styles/app_theme.dart';
+import 'package:fraze_pocket/styles/app_theme.dart';
 
 class SettingsPage extends StatefulWidget {
   const SettingsPage({super.key});

@@ -1,7 +1,7 @@
 import 'dart:developer';
 import 'package:flutter/material.dart';
-import 'package:tt_36/models/affirmation.dart';
-import 'package:tt_36/service/open_ai.dart';
+import 'package:fraze_pocket/models/affirmation.dart';
+import 'package:fraze_pocket/service/open_ai.dart';
 
 class AffirmationProvider with ChangeNotifier {
   final List<Affirmation> _affirmations = [];

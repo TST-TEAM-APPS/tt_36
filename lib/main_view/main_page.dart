@@ -3,11 +3,11 @@ import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
 import 'package:intl/intl.dart';
 import 'package:intl/date_symbol_data_local.dart';
-import 'package:tt_36/main_view/action_history_page.dart';
-import 'package:tt_36/main_view/choose_feeling_bottom_sheet.dart';
-import 'package:tt_36/models/mood_entry.dart';
-import 'package:tt_36/settings_view/settings_page.dart';
-import 'package:tt_36/styles/app_theme.dart';
+import 'package:fraze_pocket/main_view/action_history_page.dart';
+import 'package:fraze_pocket/main_view/choose_feeling_bottom_sheet.dart';
+import 'package:fraze_pocket/models/mood_entry.dart';
+import 'package:fraze_pocket/settings_view/settings_page.dart';
+import 'package:fraze_pocket/styles/app_theme.dart';
 
 class MainPage extends StatefulWidget {
   const MainPage({super.key});
