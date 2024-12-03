@@ -210,7 +210,7 @@ class _MainPageState extends State<MainPage> {
                     Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => SettingsPage()));
+                            builder: (context) => const SettingsPage()));
                   },
                   child: Container(
                     height: 48,

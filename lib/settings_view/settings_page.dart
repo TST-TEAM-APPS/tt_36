@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:tt_36/main_view/action_history_page.dart';
 import 'package:tt_36/styles/app_theme.dart';
 
 class SettingsPage extends StatefulWidget {
@@ -16,7 +15,7 @@ class _SettingsPageState extends State<SettingsPage> {
       backgroundColor: AppTheme.background,
       body: SafeArea(
           child: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 16),
+        padding: const EdgeInsets.symmetric(horizontal: 16),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -40,7 +39,7 @@ class _SettingsPageState extends State<SettingsPage> {
                         color: const Color.fromRGBO(45, 45, 51, 1),
                       ),
                     ),
-                    child: Icon(
+                    child: const Icon(
                       Icons.arrow_back,
                       color: AppTheme.onSurface,
                     ),
@@ -51,16 +50,13 @@ class _SettingsPageState extends State<SettingsPage> {
             const SizedBox(
               height: 35,
             ),
-            // График настроения
-
             Container(
               height: 300,
-              decoration: BoxDecoration(
+              decoration: const BoxDecoration(
                   image: DecorationImage(
                       image: AssetImage('assets/images/Rectangle 525.png'),
                       fit: BoxFit.cover)),
             ),
-
             const SizedBox(
               height: 20,
             ),
@@ -72,7 +68,6 @@ class _SettingsPageState extends State<SettingsPage> {
             const SizedBox(
               height: 10,
             ),
-            // Текст настроения и кнопка добавления
             Row(
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -103,7 +98,7 @@ class _SettingsPageState extends State<SettingsPage> {
                 ),
               ],
             ),
-            SizedBox(
+            const SizedBox(
               height: 20,
             ),
             Row(
@@ -114,21 +109,20 @@ class _SettingsPageState extends State<SettingsPage> {
                   style: AppTheme.bodyMedium
                       .copyWith(color: AppTheme.onBackground),
                 ),
-                Icon(
+                const Icon(
                   Icons.arrow_forward_ios,
-                  color: const Color.fromARGB(255, 92, 92, 92),
+                  color: Color.fromARGB(255, 92, 92, 92),
                 )
               ],
             ),
-            SizedBox(
+            const SizedBox(
               height: 16,
             ),
-
-            Divider(
-              color: const Color.fromARGB(255, 63, 63, 63),
+            const Divider(
+              color: Color.fromARGB(255, 63, 63, 63),
               height: 1,
             ),
-            SizedBox(
+            const SizedBox(
               height: 16,
             ),
             Row(
@@ -139,21 +133,20 @@ class _SettingsPageState extends State<SettingsPage> {
                   style: AppTheme.bodyMedium
                       .copyWith(color: AppTheme.onBackground),
                 ),
-                Icon(
+                const Icon(
                   Icons.arrow_forward_ios,
-                  color: const Color.fromARGB(255, 92, 92, 92),
+                  color: Color.fromARGB(255, 92, 92, 92),
                 )
               ],
             ),
-            SizedBox(
+            const SizedBox(
               height: 16,
             ),
-
-            Divider(
-              color: const Color.fromARGB(255, 63, 63, 63),
+            const Divider(
+              color: Color.fromARGB(255, 63, 63, 63),
               height: 1,
             ),
-            SizedBox(
+            const SizedBox(
               height: 16,
             ),
             Row(
@@ -164,21 +157,20 @@ class _SettingsPageState extends State<SettingsPage> {
                   style: AppTheme.bodyMedium
                       .copyWith(color: AppTheme.onBackground),
                 ),
-                Icon(
+                const Icon(
                   Icons.arrow_forward_ios,
-                  color: const Color.fromARGB(255, 92, 92, 92),
+                  color: Color.fromARGB(255, 92, 92, 92),
                 )
               ],
             ),
-            SizedBox(
+            const SizedBox(
               height: 16,
             ),
-
-            Divider(
-              color: const Color.fromARGB(255, 63, 63, 63),
+            const Divider(
+              color: Color.fromARGB(255, 63, 63, 63),
               height: 1,
             ),
-            SizedBox(
+            const SizedBox(
               height: 16,
             ),
             Row(
@@ -189,18 +181,17 @@ class _SettingsPageState extends State<SettingsPage> {
                   style: AppTheme.bodyMedium
                       .copyWith(color: AppTheme.onBackground),
                 ),
-                Icon(
+                const Icon(
                   Icons.arrow_forward_ios,
-                  color: const Color.fromARGB(255, 92, 92, 92),
+                  color: Color.fromARGB(255, 92, 92, 92),
                 )
               ],
             ),
-            SizedBox(
+            const SizedBox(
               height: 16,
             ),
-
-            Divider(
-              color: const Color.fromARGB(255, 63, 63, 63),
+            const Divider(
+              color: Color.fromARGB(255, 63, 63, 63),
               height: 1,
             )
           ],

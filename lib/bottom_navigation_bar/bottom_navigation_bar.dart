@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:gaimon/gaimon.dart';
-import 'package:tt_36/affirmation_view/affirmations_page.dart';
 import 'package:tt_36/main_view/main_page.dart';
 import 'package:tt_36/mood_graphic_view/mood_graphic_page.dart';
 import 'package:tt_36/styles/app_theme.dart';
+import 'package:tt_36/test_page.dart';
 
 class CustomNavigationBar extends StatefulWidget {
   const CustomNavigationBar({super.key});
@@ -21,15 +21,12 @@ class _CustomNavigationBarState extends State<CustomNavigationBar> {
     const MoodGraphicPage(),
   ];
 
-  // Колбек для отображения BottomSheet
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Stack(
         children: [
           _pages[_currentIndex],
-          // Навигационная панель
           Positioned(
             bottom: 40.0,
             left: 95.0,
@@ -44,7 +41,7 @@ class _CustomNavigationBarState extends State<CustomNavigationBar> {
                     child: Container(
                       height: 70,
                       decoration: const BoxDecoration(
-                        color: AppTheme.surface, // Dark background color
+                        color: AppTheme.surface,
                         borderRadius: BorderRadius.all(Radius.circular(40)),
                       ),
                       child: Row(
@@ -73,7 +70,6 @@ class _CustomNavigationBarState extends State<CustomNavigationBar> {
               ),
             ),
           ),
-          // Кнопка добавления
         ],
       ),
     );

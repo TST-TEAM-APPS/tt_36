@@ -1,11 +1,9 @@
-// onboarding_view/onboarding_page.dart
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:gaimon/gaimon.dart';
 import 'package:hive/hive.dart';
 import 'package:tt_36/bottom_navigation_bar/bottom_navigation_bar.dart';
-import 'package:tt_36/styles/app_theme.dart'; // Добавьте импорт Hive
+import 'package:tt_36/styles/app_theme.dart';
 
 class OnboardingScreen extends StatefulWidget {
   const OnboardingScreen({super.key});
@@ -43,11 +41,9 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
         curve: Curves.easeInOut,
       );
     } else {
-      // Установка флага завершения онбординга
       var settingsBox = Hive.box('settings');
       await settingsBox.put('isOnboardingCompleted', true);
 
-      // Переход к следующему экрану
       Navigator.pushReplacement(
         context,
         MaterialPageRoute(
@@ -60,7 +56,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFF1C1C1E), // Тёмный фон
+      backgroundColor: const Color(0xFF1C1C1E),
       body: PageView.builder(
         controller: _pageController,
         itemCount: _pages.length,
@@ -85,27 +81,24 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                   fit: BoxFit.cover,
                 ),
               ),
-              // Контент поверх изображения
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 16.0),
                 child: Container(
-                  decoration: BoxDecoration(
+                  decoration: const BoxDecoration(
                     gradient: LinearGradient(
                       colors: [
-                        const Color.fromARGB(0, 0, 0, 0),
-                        const Color.fromARGB(255, 0, 0, 0)
-                      ], // Цвета градиента
-                      begin: Alignment.topLeft, // Начало градиента
-                      end: Alignment.bottomRight, // Конец градиента
+                        Color.fromARGB(0, 0, 0, 0),
+                        Color.fromARGB(255, 0, 0, 0)
+                      ],
+                      begin: Alignment.topLeft,
+                      end: Alignment.bottomRight,
                     ),
                   ),
                   child: Column(
                     mainAxisSize: MainAxisSize.min,
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
-                      const SizedBox(
-                        height: 530,
-                      ), // Заголовок
+                      const SizedBox(height: 530),
                       Text(
                         page['title']!,
                         textAlign: TextAlign.center,
@@ -116,7 +109,6 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                         ),
                       ),
                       const SizedBox(height: 12),
-                      // Подзаголовок
                       Text(
                         page['subtitle']!,
                         textAlign: TextAlign.center,
@@ -127,7 +119,6 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                         ),
                       ),
                       const Spacer(),
-                      // Кнопка
                       Center(
                         child: CupertinoButton(
                           color: _currentIndex == _pages.length - 1
@@ -136,7 +127,6 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                           borderRadius: BorderRadius.circular(24),
                           onPressed: () {
                             _nextPage();
-
                             Gaimon.selection();
                           },
                           child: Text(
@@ -151,7 +141,6 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                           ),
                         ),
                       ),
-
                       const SizedBox(height: 40),
                     ],
                   ),

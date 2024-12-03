@@ -34,9 +34,9 @@ class _ChooseFeelingBottomSheetState extends State<ChooseFeelingBottomSheet> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      decoration: BoxDecoration(
+      decoration: const BoxDecoration(
           color: AppTheme.popUp,
-          borderRadius: const BorderRadius.only(
+          borderRadius: BorderRadius.only(
               topLeft: Radius.circular(20), topRight: Radius.circular(20))),
       child: SafeArea(
         child: Padding(

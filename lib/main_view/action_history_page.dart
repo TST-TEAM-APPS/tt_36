@@ -64,7 +64,7 @@ class _ActionHistoryPageState extends State<ActionHistoryPage> {
                       child: Container(
                         width: 48,
                         height: 48,
-                        decoration: BoxDecoration(
+                        decoration: const BoxDecoration(
                             color: AppTheme.surface, shape: BoxShape.circle),
                         child: const Icon(
                           Icons.arrow_back,
@@ -75,11 +75,11 @@ class _ActionHistoryPageState extends State<ActionHistoryPage> {
                         Navigator.pop(context);
                       }),
                   CupertinoButton(
+                      onPressed: _clearHistory,
                       child: const Icon(
                         Icons.delete,
                         color: Colors.red,
-                      ),
-                      onPressed: _clearHistory)
+                      ))
                 ],
               ),
               Text(
@@ -130,12 +130,12 @@ class ActionHistoryItem extends StatelessWidget {
   final String time;
 
   const ActionHistoryItem({
-    Key? key,
+    super.key,
     required this.message,
     required this.date,
     required this.time,
     required this.image,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

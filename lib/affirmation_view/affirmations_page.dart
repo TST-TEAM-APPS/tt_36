@@ -13,7 +13,6 @@ class _AffirmationsPageState extends State<AffirmationsPage> {
   final PageController _pageController = PageController();
   int _currentPage = 0;
 
-  // Количество страниц
   final int _numPages = 8;
 
   @override
@@ -22,7 +21,6 @@ class _AffirmationsPageState extends State<AffirmationsPage> {
     super.dispose();
   }
 
-  // Метод для построения пагинационных точек
   Widget _buildDots() {
     List<Widget> dots = [];
     for (int i = 0; i < _numPages; i++) {
@@ -42,9 +40,7 @@ class _AffirmationsPageState extends State<AffirmationsPage> {
     );
   }
 
-  // Метод для построения каждой страницы
   Widget _buildPage(int index) {
-    // Пример содержимого страницы: цветной контейнер с номером страницы
     List<String> affirmations = [
       '«i know tah luck will always follow me»',
       '«a source of inspiration within me»',
@@ -96,21 +92,21 @@ class _AffirmationsPageState extends State<AffirmationsPage> {
               image: AssetImage(images[index]), fit: BoxFit.fill)),
       child: Column(
         children: [
-          SizedBox(
+          const SizedBox(
             height: 10,
           ),
           Text(
             forwhat[index],
             style: AppTheme.displaySmall.copyWith(color: colors[index]),
           ),
-          SizedBox(
+          const SizedBox(
             height: 40,
           ),
           Center(
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 60.0),
               child: Text(
-                '${affirmations[index]}',
+                affirmations[index],
                 style: AppTheme.displayMedium.copyWith(color: colors[index]),
               ),
             ),
@@ -178,7 +174,7 @@ class _AffirmationsPageState extends State<AffirmationsPage> {
                   ),
                 ],
               ),
-              SizedBox(
+              const SizedBox(
                 height: 40,
               ),
               Text(
@@ -186,7 +182,7 @@ class _AffirmationsPageState extends State<AffirmationsPage> {
                 style: AppTheme.bodyLarge
                     .copyWith(color: const Color.fromARGB(78, 252, 248, 239)),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 10,
               ),
               Text(
@@ -194,12 +190,11 @@ class _AffirmationsPageState extends State<AffirmationsPage> {
                 style: AppTheme.displayLarge
                     .copyWith(color: AppTheme.onBackground),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 30,
               ),
-              // Горизонтальный PageView
               SizedBox(
-                height: 350.0, // Ограничиваем высоту PageView
+                height: 350.0,
                 child: PageView.builder(
                   controller: _pageController,
                   itemCount: _numPages,
@@ -214,7 +209,6 @@ class _AffirmationsPageState extends State<AffirmationsPage> {
                 ),
               ),
               const SizedBox(height: 16.0),
-              // Пагинационные точки
               _buildDots(),
             ],
           ),

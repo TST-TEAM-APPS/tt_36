@@ -15,11 +15,10 @@ class MoodGraphicPage extends StatefulWidget {
 
 class _MoodGraphicPageState extends State<MoodGraphicPage> {
   List<Color> gradientColors = [
-    Color(0xff434343),
-    Color.fromARGB(45, 67, 67, 67),
+    const Color(0xff434343),
+    const Color.fromARGB(45, 67, 67, 67),
   ];
 
-  // Слушатель изменений в коробке Hive
   late Box<MoodEntry> moodBox;
   List<FlSpot> moodSpots = [];
   List<String> weekDays = [];
@@ -30,13 +29,11 @@ class _MoodGraphicPageState extends State<MoodGraphicPage> {
     moodBox = Hive.box<MoodEntry>('moodBox');
     _loadLastSevenDaysMoods();
 
-    // Добавляем слушатель изменений в Hive
     moodBox.watch().listen((event) {
       _loadLastSevenDaysMoods();
     });
   }
 
-  // Метод для загрузки последних семи дней настроений
   void _loadLastSevenDaysMoods() {
     final DateTime today = DateTime.now();
     List<DateTime> lastSevenDays = List.generate(7, (index) {
@@ -51,24 +48,20 @@ class _MoodGraphicPageState extends State<MoodGraphicPage> {
       DateTime day = lastSevenDays[i];
       DateTime dayOnly = DateUtils.dateOnly(day);
 
-      // Получаем все настроения за этот день и выбираем последнее
       List<MoodEntry> entriesForDay = moodBox.values
           .where((entry) => DateUtils.isSameDay(entry.dateTime, dayOnly))
           .toList();
 
       if (entriesForDay.isNotEmpty) {
-        // Сортируем по времени и берем последнее
         entriesForDay.sort((a, b) => a.dateTime.compareTo(b.dateTime));
         MoodEntry latestEntry = entriesForDay.last;
         double moodValue = _moodToValue(latestEntry.mood);
         spots.add(FlSpot(i.toDouble(), moodValue));
       } else {
-        // Если настроения нет, устанавливаем значение 0 или другое подходящее значение
         spots.add(FlSpot(i.toDouble(), 0));
       }
 
-      // Добавляем название дня недели
-      String dayLabel = DateFormat.E().format(day); // 'Mon', 'Tue', etc.
+      String dayLabel = DateFormat.E().format(day);
       daysLabels.add(dayLabel);
     }
 
@@ -78,7 +71,6 @@ class _MoodGraphicPageState extends State<MoodGraphicPage> {
     });
   }
 
-  // Метод для преобразования настроения в числовое значение
   double _moodToValue(String mood) {
     switch (mood) {
       case 'BAD':
@@ -90,11 +82,10 @@ class _MoodGraphicPageState extends State<MoodGraphicPage> {
       case 'AMAZING':
         return 4;
       default:
-        return 0; // Для неопределённых настроений
+        return 0;
     }
   }
 
-  // Метод для получения изображения по настроению
   String _getImageForMood(String mood) {
     switch (mood) {
       case 'AMAZING':
@@ -168,7 +159,7 @@ class _MoodGraphicPageState extends State<MoodGraphicPage> {
                   ),
                 ],
               ),
-              SizedBox(
+              const SizedBox(
                 height: 40,
               ),
               Text(
@@ -176,7 +167,7 @@ class _MoodGraphicPageState extends State<MoodGraphicPage> {
                 style: AppTheme.bodyLarge
                     .copyWith(color: const Color.fromARGB(78, 252, 248, 239)),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 10,
               ),
               Text(
@@ -184,11 +175,11 @@ class _MoodGraphicPageState extends State<MoodGraphicPage> {
                 style: AppTheme.displayLarge
                     .copyWith(color: AppTheme.onBackground),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 30,
               ),
               Container(
-                padding: EdgeInsets.all(20),
+                padding: const EdgeInsets.all(20),
                 decoration: BoxDecoration(
                     color: AppTheme.surface,
                     borderRadius: BorderRadius.circular(20)),
@@ -204,13 +195,13 @@ class _MoodGraphicPageState extends State<MoodGraphicPage> {
                               horizontalInterval: 1,
                               verticalInterval: 1,
                               getDrawingHorizontalLine: (value) {
-                                return FlLine(
+                                return const FlLine(
                                   color: AppTheme.surface,
                                   strokeWidth: 1,
                                 );
                               },
                               getDrawingVerticalLine: (value) {
-                                return FlLine(
+                                return const FlLine(
                                   color: AppTheme.surface,
                                   strokeWidth: 1,
                                 );
@@ -332,7 +323,6 @@ class _MoodGraphicPageState extends State<MoodGraphicPage> {
     );
   }
 
-  // Метод для преобразования значения настроения в цвет точки
   Color _valueToColor(double value) {
     switch (value.toInt()) {
       case 1:
