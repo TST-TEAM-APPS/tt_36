@@ -56,11 +56,12 @@ class _ActionHistoryPageState extends State<ActionHistoryPage> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              // Верхняя панель
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   CupertinoButton(
+                      padding: EdgeInsets.zero,
+                      minSize: 1,
                       child: Container(
                         width: 48,
                         height: 48,
@@ -82,6 +83,7 @@ class _ActionHistoryPageState extends State<ActionHistoryPage> {
                       ))
                 ],
               ),
+              const SizedBox(height: 20),
               Text(
                 'ACTION\nHISTORY',
                 style:
