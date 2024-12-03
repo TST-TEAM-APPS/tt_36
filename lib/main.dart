@@ -3,7 +3,9 @@ import 'package:flutter/services.dart';
 import 'package:flutter_app_info/flutter_app_info.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:fraze_pocket/onboarding_view/initial_page.dart';
+import 'package:fraze_pocket/service/flagsmith_service.dart';
 import 'package:fraze_pocket/service/service_locator.dart';
+import 'package:get_it/get_it.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:provider/provider.dart';
 import 'package:fraze_pocket/models/mood_entry.dart';
@@ -21,6 +23,10 @@ void main() async {
     DeviceOrientation.portraitUp,
     DeviceOrientation.portraitDown,
   ]);
+
+    WidgetsBinding.instance.addObserver(
+    AppLifecycleListener(onDetach: GetIt.instance<FlagSmithService>().closeClient),
+  );
 
   runApp(
     ChangeNotifierProvider(
