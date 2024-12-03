@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_app_info/flutter_app_info.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:fraze_pocket/onboarding_view/initial_page.dart';
 import 'package:fraze_pocket/service/service_locator.dart';
@@ -21,8 +22,14 @@ void main() async {
     DeviceOrientation.portraitDown,
   ]);
 
-  runApp(ChangeNotifierProvider(
-      create: (context) => AffirmationProvider(), child: const MainApp()));
+  runApp(
+    ChangeNotifierProvider(
+      create: (context) => AffirmationProvider(),
+      child: AppInfo(
+        data: await AppInfoData.get(),
+        child: const MainApp()),
+    ),
+  );
 }
 
 class MainApp extends StatelessWidget {
@@ -31,12 +38,11 @@ class MainApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Fraze Pocket',
-      theme: ThemeData(
-        fontFamily: 'Onest',
-      ),
-      debugShowCheckedModeBanner: false,
-      home: const InitialScreen()
-    );
+        title: 'Fraze Pocket',
+        theme: ThemeData(
+          fontFamily: 'Onest',
+        ),
+        debugShowCheckedModeBanner: false,
+        home: const InitialScreen());
   }
 }
