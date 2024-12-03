@@ -15,37 +15,12 @@ class AffirmationProvider with ChangeNotifier {
   }
 
   Future<void> fetchAffirmations() async {
-    List<String> categories = [
-      'love',
-      'happiness',
-      'health',
-      'money',
-      'work',
-      'love',
-      'happiness',
-      'health',
-    ];
-
     List<String> images = [
       'assets/images/Frame1000004490.png',
       'assets/images/Frame1000004496.png',
       'assets/images/Frame1000004493.png',
       'assets/images/Frame1000004491.png',
       'assets/images/Frame1000004494.png',
-      'assets/images/Frame1000004492.png',
-      'assets/images/Frame1000004489.png',
-      'assets/images/Frame1000004495.png',
-    ];
-
-    List<String> forWhat = [
-      'For good luck',
-      'For every day',
-      'For health',
-      'For health',
-      'For every day',
-      'For money',
-      'For work',
-      'For work',
     ];
 
     List<Color> colors = [
@@ -59,20 +34,19 @@ class AffirmationProvider with ChangeNotifier {
       Colors.white,
     ];
 
-    for (int i = 0; i < categories.length; i++) {
+    for (int i = 0; i < 5; i++) {
       try {
-        String text =
-            await ApiService().getAffirmation(category: categories[i]);
+        final data = await ApiService().getAffirmation();
         _affirmations.add(
           Affirmation(
-            text: text,
+            text: data['text'],
             imagePath: images[i],
-            category: forWhat[i],
+            category: data['category'],
             color: colors[i],
           ),
         );
       } catch (e) {
-        log('Error fetching affirmation for category ${categories[i]}: $e');
+        log('Error fetching affirmation for category');
       }
     }
 

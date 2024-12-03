@@ -4,11 +4,11 @@ import 'dart:developer';
 import 'package:http/http.dart';
 
 class ApiService {
-  Future<String> getAffirmation({required String category}) async {
+  Future<Map<String, dynamic>> getAffirmation() async {
     try {
       final response = await get(
         Uri.parse(
-          'https://affirmations-api-by-apirobots.p.rapidapi.com/v1/affirmations/categories/$category/random',
+          'https://affirmations-api-by-apirobots.p.rapidapi.com/v1/affirmations/random',
         ),
         headers: {
           'x-rapidapi-key':
@@ -18,8 +18,8 @@ class ApiService {
       );
       if (response.statusCode == 200) {
         final json = jsonDecode(response.body) as Map<String, dynamic>;
-        final data = json['text'] as String;
-        return data;
+  
+        return json;
       } else {
         throw Exception('Status code: ${response.statusCode}');
       }

@@ -1,9 +1,11 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:tt_36/models/affirmation.dart';
 
 import 'package:tt_36/provider/affirmation_provider.dart';
 import 'package:tt_36/styles/app_theme.dart';
+import 'package:tt_36/utils/extensions.dart';
 
 class AffirmationsPage extends StatefulWidget {
   const AffirmationsPage({super.key});
@@ -54,21 +56,20 @@ class _AffirmationsPageState extends State<AffirmationsPage> {
         children: [
           const SizedBox(height: 10),
           Text(
-            affirmation.category,
-            style: AppTheme.displaySmall.copyWith(color: affirmation.color),
+            affirmation.category.capitalize,
+            style: AppTheme.displaySmall.copyWith(color: affirmation.color, fontSize: 22),
           ),
-          const SizedBox(height: 40),
-          Center(
-            child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 60.0),
-              child: Text(
-                '«${affirmation.text}»',
-                style:
-                    AppTheme.displayMedium.copyWith(color: affirmation.color),
-                textAlign: TextAlign.center,
-              ),
+          const Spacer(), 
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 8),
+            child: Text(
+              '«${affirmation.text}»',
+              style:
+                  AppTheme.displayMedium.copyWith(color: affirmation.color),
+              textAlign: TextAlign.center,
             ),
           ),
+          const Spacer(), 
         ],
       ),
     );
@@ -84,55 +85,74 @@ class _AffirmationsPageState extends State<AffirmationsPage> {
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 16.0),
           child: affirmationProvider.affirmations.isEmpty
-              ? const Center(child: CircularProgressIndicator())
-              : Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
+              ? const Center(
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    const SizedBox(height: 50),
-                    const Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        // ... your existing code for the profile and notifications icons
-                      ],
+                    CupertinoActivityIndicator(
+                      radius: 20,
+                      color: CupertinoColors.white,
                     ),
-                    const SizedBox(height: 40),
+                    SizedBox(height: 20),
                     Text(
-                      "Read",
-                      style: AppTheme.bodyLarge.copyWith(
-                        color: const Color.fromARGB(78, 252, 248, 239),
+                      'Your affirmations is loading...',
+                      style: TextStyle(
+                        fontSize: 18,
+                        color: CupertinoColors.white,
                       ),
-                    ),
-                    const SizedBox(height: 10),
-                    Text(
-                      "FAVORITE\nAFFIRMATIONS",
-                      style: AppTheme.displayLarge.copyWith(
-                        color: AppTheme.onBackground,
-                      ),
-                    ),
-                    const SizedBox(height: 30),
-                    // PageView
-                    SizedBox(
-                      height: 350.0,
-                      child: PageView.builder(
-                        controller: _pageController,
-                        itemCount: affirmationProvider.affirmations.length,
-                        onPageChanged: (int page) {
-                          affirmationProvider.setCurrentPage(page);
-                        },
-                        itemBuilder: (BuildContext context, int index) {
-                          return _buildPage(
-                              affirmationProvider.affirmations[index]);
-                        },
-                      ),
-                    ),
-                    const SizedBox(height: 16.0),
-
-                    _buildDots(
-                      affirmationProvider.currentPage,
-                      affirmationProvider.affirmations.length,
-                    ),
+                    )
                   ],
-                ),
+                ))
+              : SingleChildScrollView(
+                child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      const SizedBox(height: 50),
+                      const Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          // ... your existing code for the profile and notifications icons
+                        ],
+                      ),
+                      const SizedBox(height: 40),
+                      Text(
+                        "Read",
+                        style: AppTheme.bodyLarge.copyWith(
+                          color: const Color.fromARGB(78, 252, 248, 239),
+                        ),
+                      ),
+                      const SizedBox(height: 10),
+                      Text(
+                        "DAILY RANDOM\nAFFIRMATIONS",
+                        style: AppTheme.displayLarge.copyWith(
+                          color: AppTheme.onBackground,
+                        ),
+                      ),
+                      const SizedBox(height: 30),
+                      // PageView
+                      SizedBox(
+                        height: 350.0,
+                        child: PageView.builder(
+                          controller: _pageController,
+                          itemCount: affirmationProvider.affirmations.length,
+                          onPageChanged: (int page) {
+                            affirmationProvider.setCurrentPage(page);
+                          },
+                          itemBuilder: (BuildContext context, int index) {
+                            return _buildPage(
+                                affirmationProvider.affirmations[index]);
+                          },
+                        ),
+                      ),
+                      const SizedBox(height: 16.0),
+                
+                      _buildDots(
+                        affirmationProvider.currentPage,
+                        affirmationProvider.affirmations.length,
+                      ),
+                    ],
+                  ),
+              ),
         ),
       ),
     );
