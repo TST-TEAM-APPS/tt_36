@@ -34,7 +34,7 @@ class MainApp extends StatelessWidget {
       theme: ThemeData(
         fontFamily: 'Onest',
       ),
-      debugShowCheckedModeBanner: true,
+      debugShowCheckedModeBanner: false,
       home: isOnboardingCompleted
           ? const CustomNavigationBar()
           : const OnboardingScreen(),
