@@ -193,230 +193,233 @@ class _MainPageState extends State<MainPage> {
     return Scaffold(
       backgroundColor: AppTheme.background,
       body: SafeArea(
-          child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 16.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            // Верхняя часть с иконками
-            const SizedBox(
-              height: 50,
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                GestureDetector(
-                  onTap: () {
-                    Navigator.push(
+        child: SingleChildScrollView(
+          padding: const EdgeInsets.only(left: 16, right: 16, bottom: 140),
+          
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+         
+              const SizedBox(
+                height: 50,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const SettingsPage()));
+                    },
+                    child: Container(
+                      height: 48,
+                      width: 48,
+                      decoration: BoxDecoration(
+                        shape: BoxShape.circle,
+                        color: AppTheme.surface,
+                        image: const DecorationImage(
+                          image: AssetImage('assets/images/Ellipse 13.png'),
+                        ),
+                        border: Border.all(
+                          color: const Color.fromRGBO(45, 45, 51, 1),
+                        ),
+                      ),
+                    ),
+                  ),
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => const SettingsPage()));
-                  },
-                  child: Container(
-                    height: 48,
-                    width: 48,
-                    decoration: BoxDecoration(
-                      shape: BoxShape.circle,
-                      color: AppTheme.surface,
-                      image: const DecorationImage(
-                        image: AssetImage('assets/images/Ellipse 13.png'),
+                          builder: (context) => const ActionHistoryPage(),
+                        ),
+                      );
+                    },
+                    child: Container(
+                      height: 48,
+                      width: 48,
+                      decoration: BoxDecoration(
+                        shape: BoxShape.circle,
+                        color: AppTheme.surface,
+                        border: Border.all(
+                          color: const Color.fromRGBO(45, 45, 51, 1),
+                        ),
                       ),
-                      border: Border.all(
-                        color: const Color.fromRGBO(45, 45, 51, 1),
+                      child: const Icon(
+                        Icons.notifications,
+                        color: AppTheme.onSurface,
+                        size: 24,
                       ),
                     ),
                   ),
-                ),
-                GestureDetector(
-                  onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => const ActionHistoryPage(),
-                      ),
-                    );
-                  },
-                  child: Container(
-                    height: 48,
-                    width: 48,
-                    decoration: BoxDecoration(
-                      shape: BoxShape.circle,
-                      color: AppTheme.surface,
-                      border: Border.all(
-                        color: const Color.fromRGBO(45, 45, 51, 1),
-                      ),
-                    ),
-                    child: const Icon(
-                      Icons.notifications,
-                      color: AppTheme.onSurface,
-                      size: 24,
-                    ),
-                  ),
-                ),
-              ],
-            ),
-            const SizedBox(
-              height: 35,
-            ),
-            // График настроения
-            Center(
-              child: GradientGraphContainer(
-                gradColor1: Colors.transparent,
-                gradColor2: Colors.transparent,
-                image: _currentMoodImage,
+                ],
               ),
-            ),
-            const SizedBox(
-              height: 20,
-            ),
-            Text(
-              DateFormat('dd MMMM yyyy').format(_selectedDate),
-              style: AppTheme.bodyLarge
-                  .copyWith(color: const Color.fromARGB(125, 252, 248, 239)),
-            ),
-            const SizedBox(
-              height: 20,
-            ),
-            // Текст настроения и кнопка добавления
-            Row(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text(
-                  _currentMoodText,
-                  style: AppTheme.displayLarge
-                      .copyWith(color: AppTheme.onBackground),
+              const SizedBox(
+                height: 35,
+              ),
+              // График настроения
+              Center(
+                child: GradientGraphContainer(
+                  gradColor1: Colors.transparent,
+                  gradColor2: Colors.transparent,
+                  image: _currentMoodImage,
                 ),
-                GestureDetector(
-                  onTap: () {
-                    showChooseFeelingBottomSheet(context);
-                  },
-                  child: Container(
-                    height: 48,
-                    width: 48,
-                    decoration: BoxDecoration(
-                      shape: BoxShape.circle,
-                      color: AppTheme.surface,
-                      border: Border.all(
-                        color: const Color.fromRGBO(45, 45, 51, 1),
+              ),
+              const SizedBox(
+                height: 20,
+              ),
+              Text(
+                DateFormat('dd MMMM yyyy').format(_selectedDate),
+                style: AppTheme.bodyLarge
+                    .copyWith(color: const Color.fromARGB(125, 252, 248, 239)),
+              ),
+              const SizedBox(
+                height: 20,
+              ),
+              // Текст настроения и кнопка добавления
+              Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    _currentMoodText,
+                    style: AppTheme.displayLarge
+                        .copyWith(color: AppTheme.onBackground),
+                  ),
+                  GestureDetector(
+                    onTap: () {
+                      showChooseFeelingBottomSheet(context);
+                    },
+                    child: Container(
+                      height: 48,
+                      width: 48,
+                      decoration: BoxDecoration(
+                        shape: BoxShape.circle,
+                        color: AppTheme.surface,
+                        border: Border.all(
+                          color: const Color.fromRGBO(45, 45, 51, 1),
+                        ),
+                      ),
+                      child: const Icon(
+                        Icons.add,
+                        color: AppTheme.onSurface,
+                        size: 24,
                       ),
                     ),
-                    child: const Icon(
-                      Icons.add,
-                      color: AppTheme.onSurface,
-                      size: 24,
-                    ),
                   ),
-                ),
-              ],
-            ),
-            const SizedBox(
-              height: 40,
-            ),
-            // Таймлайн
-            EasyInfiniteDateTimeLine(
-              showTimelineHeader: false,
-              controller: _controller,
-              firstDate: _firstDate,
-              focusDate: _selectedDate,
-              lastDate: _lastDate,
-              itemBuilder: (context, date, isSelected, onTap) {
-                final isToday = DateUtils.isSameDay(date, DateTime.now());
-                final dayOfWeek = DateFormat('E').format(date);
-                final dayOfMonth = date.day.toString();
+                ],
+              ),
+              const SizedBox(
+                height: 40,
+              ),
+              // Таймлайн
+              EasyInfiniteDateTimeLine(
+                showTimelineHeader: false,
+                controller: _controller,
+                firstDate: _firstDate,
+                focusDate: _selectedDate,
+                lastDate: _lastDate,
+                itemBuilder: (context, date, isSelected, onTap) {
+                  final isToday = DateUtils.isSameDay(date, DateTime.now());
+                  final dayOfWeek = DateFormat('E').format(date);
+                  final dayOfMonth = date.day.toString();
 
-                // Получаем настроение для текущей даты
-                final dateWithoutTime = DateUtils.dateOnly(date);
-                final mood = _moodByDate[dateWithoutTime];
+                  // Получаем настроение для текущей даты
+                  final dateWithoutTime = DateUtils.dateOnly(date);
+                  final mood = _moodByDate[dateWithoutTime];
 
-                // Определяем цвет точки на основе настроения
-                Color dotColor;
-                if (mood != null) {
-                  switch (mood) {
-                    case 'AMAZING':
-                      dotColor = const Color.fromARGB(255, 34, 250, 228);
-                      break;
-                    case 'GOOD':
-                      dotColor = Colors.orange;
-                      break;
-                    case 'NOT BAD':
-                      dotColor = Colors.purple;
-                      break;
-                    case 'BAD':
-                      dotColor = Colors.red;
-                      break;
-                    default:
-                      dotColor = Colors
-                          .grey; // Если настроение не соответствует известным
-                  }
-                } else {
-                  dotColor = AppTheme.surface; // Если настроения нет
-                }
-
-                return GestureDetector(
-                  onTap: onTap,
-                  child: Container(
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(20),
-                      color: isSelected ? AppTheme.surface : Colors.transparent,
-                    ),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        // Обновленный контейнер с цветом настроения
-                        Container(
-                          height: 7,
-                          width:
-                              7, // Добавляем ширину для корректного отображения круга
-                          decoration: BoxDecoration(
-                            shape: BoxShape.circle,
-                            color: dotColor,
-                          ),
-                        ),
-                        const SizedBox(height: 3),
-                        Text(
-                          dayOfWeek,
-                          style: TextStyle(
-                            color: isSelected
-                                ? Colors.white
-                                : const Color.fromARGB(134, 252, 248, 239),
-                            fontSize: 16,
-                          ),
-                        ),
-                        const SizedBox(height: 2),
-                        Text(
-                          dayOfMonth,
-                          style: TextStyle(
-                            color: isToday ? Colors.blue : Colors.white,
-                            fontSize: 24,
-                            fontWeight: FontWeight.w400,
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                );
-              },
-              onDateChange: (selectedDate) {
-                setState(() {
-                  _selectedDate = selectedDate;
-                  final date = DateUtils.dateOnly(selectedDate);
-                  if (_moodByDate.containsKey(date)) {
-                    _currentMood = _moodByDate[date]!;
-                    _currentMoodImage = _getImageForMood(_currentMood);
-                    _currentMoodText = 'YOU ARE\nFEELING\n$_currentMood';
+                  // Определяем цвет точки на основе настроения
+                  Color dotColor;
+                  if (mood != null) {
+                    switch (mood) {
+                      case 'AMAZING':
+                        dotColor = const Color.fromARGB(255, 34, 250, 228);
+                        break;
+                      case 'GOOD':
+                        dotColor = Colors.orange;
+                        break;
+                      case 'NOT BAD':
+                        dotColor = Colors.purple;
+                        break;
+                      case 'BAD':
+                        dotColor = Colors.red;
+                        break;
+                      default:
+                        dotColor = Colors
+                            .grey; // Если настроение не соответствует известным
+                    }
                   } else {
-                    _currentMood = 'Primary';
-                    _currentMoodImage = 'assets/images/Feel_not selected.png';
-                    _currentMoodText = 'CHOOSE\nWHAT\nYOU FEEL';
+                    dotColor = AppTheme.surface; // Если настроения нет
                   }
-                });
-              },
-              dayProps: dayProps,
-            ),
-          ],
+
+                  return GestureDetector(
+                    onTap: onTap,
+                    child: Container(
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(20),
+                        color:
+                            isSelected ? AppTheme.surface : Colors.transparent,
+                      ),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          // Обновленный контейнер с цветом настроения
+                          Container(
+                            height: 7,
+                            width:
+                                7, // Добавляем ширину для корректного отображения круга
+                            decoration: BoxDecoration(
+                              shape: BoxShape.circle,
+                              color: dotColor,
+                            ),
+                          ),
+                          const SizedBox(height: 3),
+                          Text(
+                            dayOfWeek,
+                            style: TextStyle(
+                              color: isSelected
+                                  ? Colors.white
+                                  : const Color.fromARGB(134, 252, 248, 239),
+                              fontSize: 16,
+                            ),
+                          ),
+                          const SizedBox(height: 2),
+                          Text(
+                            dayOfMonth,
+                            style: TextStyle(
+                              color: isToday ? Colors.blue : Colors.white,
+                              fontSize: 24,
+                              fontWeight: FontWeight.w400,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  );
+                },
+                onDateChange: (selectedDate) {
+                  setState(() {
+                    _selectedDate = selectedDate;
+                    final date = DateUtils.dateOnly(selectedDate);
+                    if (_moodByDate.containsKey(date)) {
+                      _currentMood = _moodByDate[date]!;
+                      _currentMoodImage = _getImageForMood(_currentMood);
+                      _currentMoodText = 'YOU ARE\nFEELING\n$_currentMood';
+                    } else {
+                      _currentMood = 'Primary';
+                      _currentMoodImage = 'assets/images/Feel_not selected.png';
+                      _currentMoodText = 'CHOOSE\nWHAT\nYOU FEEL';
+                    }
+                  });
+                },
+                dayProps: dayProps,
+              ),
+            ],
+          ),
         ),
-      )),
+      ),
     );
   }
 }

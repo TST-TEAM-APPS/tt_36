@@ -95,10 +95,9 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                     ),
                   ),
                   child: Column(
-                    mainAxisSize: MainAxisSize.min,
                     crossAxisAlignment: CrossAxisAlignment.center,
+                    mainAxisAlignment: MainAxisAlignment.end,
                     children: [
-                      const SizedBox(height: 530),
                       Text(
                         page['title']!,
                         textAlign: TextAlign.center,
@@ -118,7 +117,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                           height: 1.5,
                         ),
                       ),
-                      const Spacer(),
+                      const SizedBox(height: 30),
                       Center(
                         child: CupertinoButton(
                           color: _currentIndex == _pages.length - 1
@@ -141,7 +140,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                           ),
                         ),
                       ),
-                      const SizedBox(height: 40),
+                      const SizedBox(height: 20),
                     ],
                   ),
                 ),

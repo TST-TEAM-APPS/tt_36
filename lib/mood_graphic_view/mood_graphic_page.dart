@@ -106,8 +106,8 @@ class _MoodGraphicPageState extends State<MoodGraphicPage> {
     return Scaffold(
       backgroundColor: AppTheme.background,
       body: SafeArea(
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 16.0),
+        child: SingleChildScrollView(
+            padding: const EdgeInsets.only(left: 16.0, right: 16, bottom: 40),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [

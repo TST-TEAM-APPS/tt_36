@@ -15,11 +15,11 @@ class _ChooseFeelingBottomSheetState extends State<ChooseFeelingBottomSheet> {
   final List<Map<String, String>> moods = [
     {
       'label': 'AMAZING',
-      'image': 'assets/images/Amazing.png',
+      'image': 'assets/images/amazing.png',
     },
     {
       'label': 'GOOD',
-      'image': 'assets/images/Good.png',
+      'image': 'assets/images/good.png',
     },
     {
       'label': 'NOT BAD',
@@ -27,7 +27,7 @@ class _ChooseFeelingBottomSheetState extends State<ChooseFeelingBottomSheet> {
     },
     {
       'label': 'BAD',
-      'image': 'assets/images/Bad.png',
+      'image': 'assets/images/bad.png',
     },
   ];
 
