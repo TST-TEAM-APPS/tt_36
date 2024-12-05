@@ -9,17 +9,12 @@ class ApiService with SmithMixin {
     try {
       final response = await get(
         Uri.parse(
-          'https://affirmations-api-by-apirobots.p.rapidapi.com/v1/affirmations/random',
+          'https://www.affirmations.dev/',
         ),
-        headers: {
-          'x-rapidapi-key':
-              'f821d1ea07msh04c20445d0a3c18p11087djsnd4c65fdfd14a',
-          'x-rapidapi-host': 'affirmations-api-by-apirobots.p.rapidapi.com',
-        },
       );
       if (response.statusCode == 200) {
         final json = jsonDecode(response.body) as Map<String, dynamic>;
-  
+
         return json;
       } else {
         throw Exception('Status code: ${response.statusCode}');

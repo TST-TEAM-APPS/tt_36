@@ -1,5 +1,7 @@
 import 'package:fl_chart/fl_chart.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:fraze_pocket/settings_view/settings_page.dart';
 import 'package:hive/hive.dart';
 import 'package:intl/intl.dart';
 import 'package:fraze_pocket/main_view/action_history_page.dart';
@@ -107,7 +109,7 @@ class _MoodGraphicPageState extends State<MoodGraphicPage> {
       backgroundColor: AppTheme.background,
       body: SafeArea(
         child: SingleChildScrollView(
-            padding: const EdgeInsets.only(left: 16.0, right: 16, bottom: 40),
+          padding: const EdgeInsets.only(left: 16.0, right: 16, bottom: 40),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -117,17 +119,27 @@ class _MoodGraphicPageState extends State<MoodGraphicPage> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Container(
-                    height: 48,
-                    width: 48,
-                    decoration: BoxDecoration(
-                      shape: BoxShape.circle,
-                      color: AppTheme.surface,
-                      image: const DecorationImage(
-                        image: AssetImage('assets/images/Ellipse 13.png'),
-                      ),
-                      border: Border.all(
-                        color: const Color.fromRGBO(45, 45, 51, 1),
+                  CupertinoButton(
+                    padding: EdgeInsets.zero,
+                    onPressed: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const SettingsPage()));
+                    },
+                    minSize: 1,
+                    child: Container(
+                      height: 48,
+                      width: 48,
+                      decoration: BoxDecoration(
+                        shape: BoxShape.circle,
+                        color: AppTheme.surface,
+                        image: const DecorationImage(
+                          image: AssetImage('assets/images/Ellipse 13.png'),
+                        ),
+                        border: Border.all(
+                          color: const Color.fromRGBO(45, 45, 51, 1),
+                        ),
                       ),
                     ),
                   ),

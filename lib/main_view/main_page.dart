@@ -1,4 +1,5 @@
 import 'package:easy_date_timeline/easy_date_timeline.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
 import 'package:intl/intl.dart';
@@ -206,8 +207,11 @@ class _MainPageState extends State<MainPage> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  GestureDetector(
-                    onTap: () {
+                  CupertinoButton(
+                    padding: EdgeInsets.zero,
+                    minSize: 1,
+
+                    onPressed: () {
                       Navigator.push(
                           context,
                           MaterialPageRoute(

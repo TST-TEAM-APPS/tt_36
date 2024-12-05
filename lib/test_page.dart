@@ -5,7 +5,6 @@ import 'package:fraze_pocket/models/affirmation.dart';
 
 import 'package:fraze_pocket/provider/affirmation_provider.dart';
 import 'package:fraze_pocket/styles/app_theme.dart';
-import 'package:fraze_pocket/utils/extensions.dart';
 
 class AffirmationsPage extends StatefulWidget {
   const AffirmationsPage({super.key});
@@ -55,21 +54,16 @@ class _AffirmationsPageState extends State<AffirmationsPage> {
       child: Column(
         children: [
           const SizedBox(height: 10),
-          Text(
-            affirmation.category.capitalize,
-            style: AppTheme.displaySmall.copyWith(color: affirmation.color, fontSize: 22),
-          ),
-          const Spacer(), 
+          const Spacer(),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 8),
             child: Text(
               '«${affirmation.text}»',
-              style:
-                  AppTheme.displayMedium.copyWith(color: affirmation.color),
+              style: AppTheme.displayMedium.copyWith(color: affirmation.color),
               textAlign: TextAlign.center,
             ),
           ),
-          const Spacer(), 
+          const Spacer(),
         ],
       ),
     );
@@ -87,7 +81,7 @@ class _AffirmationsPageState extends State<AffirmationsPage> {
           child: affirmationProvider.affirmations.isEmpty
               ? const Center(
                   child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     CupertinoActivityIndicator(
                       radius: 20,
@@ -104,7 +98,7 @@ class _AffirmationsPageState extends State<AffirmationsPage> {
                   ],
                 ))
               : SingleChildScrollView(
-                child: Column(
+                  child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       const SizedBox(height: 50),
@@ -145,14 +139,14 @@ class _AffirmationsPageState extends State<AffirmationsPage> {
                         ),
                       ),
                       const SizedBox(height: 16.0),
-                
+
                       _buildDots(
                         affirmationProvider.currentPage,
                         affirmationProvider.affirmations.length,
                       ),
                     ],
                   ),
-              ),
+                ),
         ),
       ),
     );

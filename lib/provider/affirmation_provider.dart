@@ -1,7 +1,7 @@
 import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:fraze_pocket/models/affirmation.dart';
-import 'package:fraze_pocket/service/open_ai.dart';
+import 'package:fraze_pocket/service/api_service.dart';
 
 class AffirmationProvider with ChangeNotifier {
   final List<Affirmation> _affirmations = [];
@@ -39,9 +39,8 @@ class AffirmationProvider with ChangeNotifier {
         final data = await ApiService().getAffirmation();
         _affirmations.add(
           Affirmation(
-            text: data['text'],
+            text: data['affirmation'],
             imagePath: images[i],
-            category: data['category'],
             color: colors[i],
           ),
         );
