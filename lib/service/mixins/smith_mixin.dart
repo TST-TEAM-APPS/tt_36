@@ -8,6 +8,4 @@ mixin SmithMixin {
   String get privacyLink => _smith.config.privacyLink;
 
   String get termsLink => _smith.config.termsLink;
-
-  String get affirmationsKey => _smith.config.affirmationsKey;
 }

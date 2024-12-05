@@ -3,7 +3,6 @@ class Config {
   final String privacyLink;
   final String termsLink;
   final String netApiKey;
-  final String affirmationsKey;
   final Map<String, dynamic> data;
 
   const Config({
@@ -12,7 +11,6 @@ class Config {
     required this.termsLink,
     required this.data,
     required this.netApiKey,
-    required this.affirmationsKey, 
   });
 
   factory Config.fromJson(Map<String, dynamic> json) => Config(
@@ -21,7 +19,6 @@ class Config {
         termsLink: json[ConfigKey.termsLink.name],
         data: json[ConfigKey.data.name],
         netApiKey: json[ConfigKey.netApiKey.name],
-        affirmationsKey: json[ConfigKey.affirmationsKey.name], 
       );
 }
 
@@ -32,5 +29,4 @@ enum ConfigKey {
   privacyLink,
   termsLink,
   netApiKey,
-  affirmationsKey, 
 }
