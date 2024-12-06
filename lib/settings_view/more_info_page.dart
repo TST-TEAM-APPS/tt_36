@@ -128,13 +128,13 @@ class _MoreInfoPageState extends State<MoreInfoPage> with NetworkMixin {
           ? Container(
               width: double.infinity,
               height: double.infinity,
-              color: const Color(0xFF0D1A22),
+              color: const Color(0xFF000000),
               child: Center(
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Image.asset(
-                      'assets/images/icon.png',
+                      'assets/images/icon_rounded.png',
                       width: 100,
                       height: 100,
                     ),
