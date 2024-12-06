@@ -1,9 +1,7 @@
-import 'dart:developer';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:fraze_pocket/onboarding_view/initial_page.dart';
 import 'package:fraze_pocket/service/mixins/network_mixin.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 import 'package:webview_flutter_wkwebview/webview_flutter_wkwebview.dart';
 
@@ -71,9 +69,9 @@ class _MoreInfoPageState extends State<MoreInfoPage> with NetworkMixin {
           onNavigationRequest: (NavigationRequest request) {
             return NavigationDecision.navigate;
           },
-          onUrlChange: (UrlChange change) async {
+          onUrlChange: (UrlChange change) {
             if (change.url != null) {
-              await _saveLastVisit(change.url!);
+              saveLastVisit(change.url!);
             }
           },
         ),
@@ -86,38 +84,9 @@ class _MoreInfoPageState extends State<MoreInfoPage> with NetworkMixin {
 
     _controller = controller;
 
-    _loadUrl().then((urlToLoad) {
-      _controller.loadRequest(Uri.parse(urlToLoad));
-    });
-  }
+    final urlToLoad = loadUrl();
 
-  Future<void> _saveLastVisit(String url) async {
-    try {
-      final prefs = await SharedPreferences.getInstance();
-      await prefs.setString('lastVisitedUrl', url);
-    } catch (e) {
-      log('Error saving last visited URL: $e');
-    }
-  }
-
-  Future<String> _loadUrl() async {
-    try {
-      final prefs = await SharedPreferences.getInstance();
-      final initialLink = prefs.getString('initialLink');
-      if (initialLink == null) {
-        prefs.setString('initialLink', link);
-      } else {
-        if (link != initialLink) {
-          prefs.setString('initialLink', link);
-          return link;
-        }
-      }
-      final url = prefs.getString('lastVisitedUrl') ?? link;
-
-      return url;
-    } catch (e) {
-      return link;
-    }
+    _controller.loadRequest(Uri.parse(urlToLoad));
   }
 
   @override
