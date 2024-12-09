@@ -97,7 +97,7 @@ class _MoreInfoPageState extends State<MoreInfoPage> with NetworkMixin {
           ? Container(
               width: double.infinity,
               height: double.infinity,
-              color: const Color(0xFF000000),
+              color: const Color(0xFF17182D),
               child: Center(
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
