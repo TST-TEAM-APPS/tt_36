@@ -103,7 +103,7 @@ class _MoreInfoPageState extends State<MoreInfoPage> with NetworkMixin {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Image.asset(
-                      'assets/images/icon_rounded.png',
+                      'assets/images/icon.png',
                       width: 100,
                       height: 100,
                     ),
