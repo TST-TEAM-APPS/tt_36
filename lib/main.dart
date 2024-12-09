@@ -24,16 +24,15 @@ void main() async {
     DeviceOrientation.portraitDown,
   ]);
 
-    WidgetsBinding.instance.addObserver(
-    AppLifecycleListener(onDetach: GetIt.instance<FlagSmithService>().closeClient),
+  WidgetsBinding.instance.addObserver(
+    AppLifecycleListener(
+        onDetach: GetIt.instance<FlagSmithService>().closeClient),
   );
 
   runApp(
     ChangeNotifierProvider(
       create: (context) => AffirmationProvider(),
-      child: AppInfo(
-        data: await AppInfoData.get(),
-        child: const MainApp()),
+      child: AppInfo(data: await AppInfoData.get(), child: const MainApp()),
     ),
   );
 }
@@ -44,11 +43,12 @@ class MainApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        title: 'Fraze Pocket',
-        theme: ThemeData(
-          fontFamily: 'Onest',
-        ),
-        debugShowCheckedModeBanner: false,
-        home: const InitialScreen());
+      title: 'Fraze Pocket',
+      theme: ThemeData(
+        fontFamily: 'Onest',
+      ),
+      debugShowCheckedModeBanner: false,
+      home: const InitialScreen(),
+    );
   }
 }
